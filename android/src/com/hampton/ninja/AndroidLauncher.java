@@ -1,10 +1,9 @@
-package com.hampton.game;
+package com.hampton.ninja;
 
 import android.os.Bundle;
 
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
-import com.hampton.game.HamptonHack;
 
 public class AndroidLauncher extends AndroidApplication {
 	@Override

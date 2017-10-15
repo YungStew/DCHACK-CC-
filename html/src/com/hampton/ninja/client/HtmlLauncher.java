@@ -1,9 +1,9 @@
-package com.hampton.game.client;
+package com.hampton.ninja.client;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.backends.gwt.GwtApplication;
 import com.badlogic.gdx.backends.gwt.GwtApplicationConfiguration;
-import com.hampton.game.HamptonHack;
+import com.hampton.ninja.HamptonHack;
 
 public class HtmlLauncher extends GwtApplication {
 

@@ -1,4 +1,4 @@
-package com.hampton.game.demo;
+package com.hampton.ninja.demo;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -10,8 +10,8 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.utils.ActorGestureListener;
-import com.hampton.game.GameScreen;
-import com.hampton.game.utils.ActorUtils;
+import com.hampton.ninja.GameScreen;
+import com.hampton.ninja.utils.ActorUtils;
 
 /**
  * Created by turnerd on 10/13/17.

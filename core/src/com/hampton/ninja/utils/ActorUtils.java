@@ -1,4 +1,4 @@
-package com.hampton.game.utils;
+package com.hampton.ninja.utils;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
