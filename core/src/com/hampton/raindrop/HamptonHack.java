@@ -1,4 +1,4 @@
-package com.hampton.game;
+package com.hampton.raindrop;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
@@ -6,8 +6,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
-import com.hampton.game.demo.BubbleDrop;
-import com.hampton.game.demo.MainMenu;
+import com.hampton.raindrop.demo.MainMenu;
 
 public class HamptonHack extends ApplicationAdapter {
 	ScreenViewport viewport;
@@ -22,7 +21,7 @@ public class HamptonHack extends ApplicationAdapter {
 
 	public void addGameScreensHere() {
 		stateManager.setGameScreen("Menu", new MainMenu("Game"));
-		stateManager.setGameScreen("Game", new BubbleDrop());
+		stateManager.setGameScreen("Game", new com.hampton.raindrop.demo.BubbleDrop());
 		stateManager.goToScreen("Menu");
 	}
 

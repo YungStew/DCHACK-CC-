@@ -1,17 +1,15 @@
-package com.hampton.game.demo;
+package com.hampton.raindrop.demo;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ActorGestureListener;
-import com.hampton.game.GameScreen;
-import com.hampton.game.utils.ActorUtils;
 
 /**
  * Created by turnerd on 10/13/17.
  */
 
-public class MainMenu extends GameScreen {
+public class MainMenu extends com.hampton.raindrop.GameScreen {
     Actor buttonFromText;
     private String nextScreenName;
 
@@ -26,7 +24,7 @@ public class MainMenu extends GameScreen {
 
     @Override
     public void createActors() {
-        buttonFromText = ActorUtils.createButtonFromText(
+        buttonFromText = com.hampton.raindrop.utils.ActorUtils.createButtonFromText(
                 "Start new game",
                 new Color(1, 1, 1, 1));
         buttonFromText.setPosition(

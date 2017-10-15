@@ -1,4 +1,4 @@
-package com.hampton.game.demo;
+package com.hampton.raindrop.demo;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
@@ -9,15 +9,14 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.utils.ActorGestureListener;
-import com.hampton.game.GameScreen;
-import com.hampton.game.utils.ActorUtils;
+import com.hampton.raindrop.utils.ActorUtils;
 
 import java.util.Random;
 
 /**
  * Created by turnerd on 10/13/17.
  */
-public class BubbleDrop extends GameScreen {
+public class BubbleDrop extends com.hampton.raindrop.GameScreen {
 
     private Random randomNumberGenerator = new Random();
     private Actor bucket;
