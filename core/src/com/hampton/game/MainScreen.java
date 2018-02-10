@@ -15,6 +15,11 @@ public class MainScreen extends GameScreen {
 
     private Actor title;
     private Actor start;
+    private String nextScreenName;
+
+    public MainScreen(String nextScreenName) {
+        this.nextScreenName = nextScreenName;
+    }
 
 
     @Override
@@ -25,7 +30,15 @@ public class MainScreen extends GameScreen {
     @Override
     public void createActors() {
 
-     title= ActorUtils.createButtonFromText("YOU LOSE", new Color(1, 1, 1, 1));
+      //title name
+     title= ActorUtils.createButtonFromText("Cross Culture", new Color(1, 1, 1, 1));
+     title.setPosition(500,500);
+     stage.addActor(title);
+
+     //start button
+     start=ActorUtils.createButtonFromText("Start", new Color(1, 1, 1, 1));
+     start.setPosition(200,200);
+     stage.addActor(start);
 
     }
 
@@ -37,6 +50,12 @@ public class MainScreen extends GameScreen {
     @Override
     public void setActionsForActors() {
 
+        start.addListener(new ActorGestureListener() {
+            @Override
+            public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                gotoScreen(nextScreenName);
+            }
+        });
     }
 
     @Override
