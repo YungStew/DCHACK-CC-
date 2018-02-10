@@ -12,7 +12,6 @@ package com.hampton.game.demo;
         import com.badlogic.gdx.scenes.scene2d.Actor;
         import com.badlogic.gdx.scenes.scene2d.InputEvent;
         import com.badlogic.gdx.scenes.scene2d.utils.ActorGestureListener;
-        import com.hampton.game.GameScreen;
         import com.hampton.game.utils.ActorUtils;
 
 /**
