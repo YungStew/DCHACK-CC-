@@ -55,6 +55,7 @@ public class MainScreen extends GameScreen {
         start.addListener(new ActorGestureListener() {
             @Override
             public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                base.background=ActorUtils.createActorFromImage("AfricanAmericanBackground.png");
                 gotoScreen(nextScreenName);
             }
         });
