@@ -85,7 +85,7 @@ public class PlayHO extends GameScreen {
                         if (ball1.getY() + ball1.getHeight() + yMove > stage.getViewport().getScreenHeight()) {
                             yMove = -yMove;
                         }
-                        ball1.moveBy(xMove, yMove);
+                        ball1.moveBy(yMove, xMove);
                         return false;
                     }
                 });
@@ -130,26 +130,14 @@ public class PlayHO extends GameScreen {
                     Gdx.input.getX(),
                     stage.getViewport().getScreenHeight() - Gdx.input.getY());
             // Moves the bar
-            bar.setPosition(touchPoint.x - bar.getWidth()/ 2, bar.getY());
+            bar.setPosition(bar.getY(), touchPoint.x - bar.getWidth()/ 2);
         }
 
         if (ActorUtils.actorsCollided(bar,ball1)){
             yMove = Math.abs(yMove);
         }
 
-        //for cpuBar
-      /*  if(Gdx.input.isTouched()) {
-            // input.getY sets 0 as the top but actors use 0 for the bottom so we have to flip it
-            Vector2 touchPoint = new Vector2(
-                    Gdx.input.getX(),
-                    stage.getViewport().getScreenHeight() - Gdx.input.getY());
-            // Moves the bar
-            cpuBar.setPosition(touchPoint.x - cpuBar.getWidth()/ 2, cpuBar.getY());
-        }
 
-        if (ActorUtils.actorsCollided(cpuBar,ball1)){
-            yMove = Math.abs(yMove);
-        }*/
 
     }
 
