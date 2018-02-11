@@ -96,7 +96,7 @@ public class PlayHO extends GameScreen {
                         if (stage.getViewport().getScreenHeight() > ball1.getY() + ball1.getHeight() + yMove) {
                             yMove = -yMove;
                         }
-                        ball1.moveBy(yMove, xMove);
+                        ball1.moveBy(xMove, yMove);
                         return false;
                     }
                 });
