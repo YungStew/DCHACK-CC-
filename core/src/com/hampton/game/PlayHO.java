@@ -18,6 +18,7 @@ import com.hampton.game.utils.ActorUtils;
  */
 
 public class PlayHO extends GameScreen {
+
     private float xMove;
     private float yMove;
     private float maxMove = 20;
@@ -123,4 +124,5 @@ public class PlayHO extends GameScreen {
         }
 
     }
+
 }
