@@ -23,19 +23,24 @@ public class PlayHO extends GameScreen {
     private float maxMove = 20;
     private Actor ball1;
     private Actor bar;
-    //private Actor background;
+    private Actor background;
     private Actor cpuBar;
     private Music musicSound;
-    private Actor blueGoal;
-    private Actor redGoal;
 
     @Override
     public void initialize() {
-
+        
+        musicSound = Gdx.audio.newMusic(Gdx.files.internal("AfrAmerSongs.mp3"));
+        musicSound.setLooping(true);
+        musicSound.play();
     }
 
     @Override
     public void createActors() {
+
+        background = ActorUtils.createActorFromImage("African American Background.png");
+        background.setSize(stage.getViewport().getScreenWidth(), stage.getViewport().getScreenHeight());
+        stage.addActor(background);
 
         ball1 = ActorUtils.createActorFromImage("Hockey Puck Black Power.png");
         ball1.setSize(125,125);
@@ -47,7 +52,7 @@ public class PlayHO extends GameScreen {
         bar = ActorUtils.createActorFromImage("Blue Striker.png");
         bar.setSize(bar.getWidth(), bar.getHeight());
         bar.setPosition(
-                40, stage.getViewport().getScreenHeight()-bar.getHeight());
+                0, 200);
         stage.addActor(bar);
 
 
@@ -58,9 +63,7 @@ public class PlayHO extends GameScreen {
                 0);
         stage.addActor(cpuBar);
 
-        musicSound = Gdx.audio.newMusic(Gdx.files.internal("AfrAmerSongs.mp3"));
-        musicSound.setLooping(true);
-        musicSound.play();
+
  
     }
 
@@ -88,13 +91,13 @@ public class PlayHO extends GameScreen {
                         if (stage.getViewport().getScreenHeight() > ball1.getY() + ball1.getHeight() + yMove) {
                             yMove = -yMove;
                         }
-                        ball1.moveBy(yMove, xMove);
+                        ball1.moveBy(xMove, yMove);
                         return false;
                     }
                 });
             }
 
-            /* cpuBar.addListener(new ActorGestureListener() {
+            cpuBar.addListener(new ActorGestureListener() {
                 @Override
                 public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
                     // Stop any other actions
@@ -106,7 +109,7 @@ public class PlayHO extends GameScreen {
                             if (cpuBar.getX() + xMove < 0) {
                                 xMove = -xMove;
                             }
-                            if (cpuBar.getX() + ball1.getWidth() + xMove > stage.getViewport().getScreenWidth()) {
+                            if (cpuBar.getX() + cpuBar.getWidth() + xMove > stage.getViewport().getScreenWidth()) {
                                 xMove = -xMove;
                             }
 
@@ -114,7 +117,7 @@ public class PlayHO extends GameScreen {
                             return false;
                         }
                     });
-                }*/
+                }
         });
 
     }
@@ -133,7 +136,7 @@ public class PlayHO extends GameScreen {
                     Gdx.input.getX(),
                     stage.getViewport().getScreenHeight() - Gdx.input.getY());
             // Moves the bar
-            bar.setPosition(bar.getY(), touchPoint.y - bar.getWidth()/ 2);
+            bar.setPosition(touchPoint.x-bar.getWidth()/2, 0);
         }
 
         if (ActorUtils.actorsCollided(bar,ball1)){
