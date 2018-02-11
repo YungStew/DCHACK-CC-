@@ -25,6 +25,7 @@ public class StateManager {
      * @param screenName MUST BE UNIQUE
      * @param screen
      */
+
     public void setGameScreen(String screenName, GameScreen screen) {
         gameScreens.put(screenName, screen);
         Stage stage = new Stage(viewport);
