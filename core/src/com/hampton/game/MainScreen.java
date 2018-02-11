@@ -16,6 +16,7 @@ public class MainScreen extends GameScreen {
     private Actor start;
     private String nextScreenName;
 
+
     public MainScreen(String nextScreenName) {
         this.nextScreenName = nextScreenName;
     }
@@ -30,7 +31,7 @@ public class MainScreen extends GameScreen {
     public void createActors() {
 
       // background
-        frontPage= ActorUtils.createActorFromImage("Main Cover Photo.png");
+        frontPage = ActorUtils.createActorFromImage("Main Cover Photo.png");
         frontPage.setSize(stage.getViewport().getScreenWidth(), stage.getViewport().getScreenHeight());
         stage.addActor(frontPage);
 
@@ -61,4 +62,5 @@ public class MainScreen extends GameScreen {
     protected void calledEveryFrame() {
 
     }
+
 }
