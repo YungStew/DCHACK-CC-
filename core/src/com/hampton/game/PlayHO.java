@@ -55,9 +55,14 @@ public class PlayHO extends GameScreen {
                 0);
         stage.addActor(cpuBar);
 
+        //Trying to figure out how to get it to just play in background
         musicSound = Gdx.audio.newMusic(Gdx.files.internal("AfrAmerSongs.mp3"));
         musicSound.setLooping(true);
         musicSound.play();
+        //  Implementing a volume for the sound so it is consistent
+        musicSound.setVolume(0.5f);
+
+
  
     }
 
