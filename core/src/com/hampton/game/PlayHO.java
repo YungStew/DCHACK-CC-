@@ -92,7 +92,7 @@ public class PlayHO extends GameScreen {
                 });
             }
 
-             cpuBar.addListener(new ActorGestureListener() {
+            /* cpuBar.addListener(new ActorGestureListener() {
                 @Override
                 public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
                     // Stop any other actions
@@ -112,7 +112,7 @@ public class PlayHO extends GameScreen {
                             return false;
                         }
                     });
-                }
+                }*/
         });
 
     }
