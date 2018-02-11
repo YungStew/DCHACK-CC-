@@ -102,7 +102,7 @@ public class PlayHO extends GameScreen {
                 });
             }
 
-            /* cpuBar.addListener(new ActorGestureListener() {
+            cpuBar.addListener(new ActorGestureListener() {
                 @Override
                 public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
                     // Stop any other actions
@@ -114,7 +114,7 @@ public class PlayHO extends GameScreen {
                             if (cpuBar.getX() + xMove < 0) {
                                 xMove = -xMove;
                             }
-                            if (cpuBar.getX() + ball1.getWidth() + xMove > stage.getViewport().getScreenWidth()) {
+                            if (cpuBar.getX() + cpuBar.getWidth() + xMove > stage.getViewport().getScreenWidth()) {
                                 xMove = -xMove;
                             }
 
@@ -122,7 +122,7 @@ public class PlayHO extends GameScreen {
                             return false;
                         }
                     });
-                }*/
+                }
         });
 
     }
