@@ -134,7 +134,37 @@ public class PlayHO extends GameScreen {
                 // Stop any other actions
                 ball1.clearActions();
                 xMove = MathUtils.random(maxMove) - maxMove /2;
-                //yMove = MathUtils.random(maxMove) - maxMove /2;
+                yMove = MathUtils.random(maxMove) - maxMove /2;
+                ball1.addAction(new Action() {
+                    @Override
+                    public boolean act(float delta) {
+                        if (ball1.getX() + xMove < 0) {
+                            xMove = -xMove;
+                        }
+                        if (ball1.getX() + ball1.getWidth() + xMove > stage.getViewport().getScreenWidth()) {
+                            xMove = -xMove;
+                        }
+                        if (ball1.getY() + yMove < 0) {
+                            yMove = -yMove;
+                        }
+                        if (ball1.getY() + ball1.getHeight() + yMove > stage.getViewport().getScreenHeight()) {
+                            yMove = -yMove;
+                        }
+                        ball1.moveBy(xMove, yMove);
+                        return false;
+                    }
+                });
+            }
+        });
+
+
+        cpuBar.addListener(new ActorGestureListener() {
+            @Override
+            public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                // Stop any other actions
+                ball1.clearActions();
+                xMove = MathUtils.random(maxMove) - maxMove /2;
+                yMove = MathUtils.random(maxMove) - maxMove /2;
                 ball1.addAction(new Action() {
                     @Override
                     public boolean act(float delta) {
@@ -145,14 +175,12 @@ public class PlayHO extends GameScreen {
                             xMove = -xMove;
                         }
 
-                        ball1.moveBy(xMove,stage.getViewport().getScreenHeight()-cpuBar.getHeight());
+                        ball1.moveBy(xMove, stage.getViewport().getScreenHeight()-cpuBar.getHeight());
                         return false;
                     }
                 });
             }
         });
-
-        
 
 
     }
