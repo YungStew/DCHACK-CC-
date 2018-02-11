@@ -7,9 +7,6 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by turnerd on 10/13/17.
- */
 
 public class StateManager {
     private Map<String, GameScreen> gameScreens = new HashMap<String, GameScreen>();
