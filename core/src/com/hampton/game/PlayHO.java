@@ -75,7 +75,7 @@ public class PlayHO extends GameScreen {
         blueGoal.setSize(blueGoal.getWidth(),blueGoal.getHeight());
 
         //cpu goal
-        redGoal=ActorUtils.createActorFromImage("Red Goal");
+        redGoal=ActorUtils.createActorFromImage("Red Goal.png");
         redGoal.setSize(redGoal.getWidth(), redGoal.getHeight());
 
         bar = ActorUtils.createActorFromImage("Blue Striker.png");
@@ -94,15 +94,8 @@ public class PlayHO extends GameScreen {
 
     }
 
-    /*class MyTimerTask extends TimerTask{
-        public void run(){
-             System.out.println("Timer task executed.");
-        }
-    }
-    public void cpuBarMove(){
-        MyTimerTask myTask = new MyTimerTask();
-        Timer myTimer = new Timer();
-        myTimer.schedule(myTask, 1000, 500);
+
+   /* public void cpuBarMove(){
            cpuBar.addListener(new ActorGestureListener() {
                 @Override
                 public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -110,6 +103,9 @@ public class PlayHO extends GameScreen {
                     cpuBar.clearActions();
                     xMove = MathUtils.random(maxMove) - maxMove /2;
                     cpuBar.addAction(new Action() {
+                        public boolean act(float delta)
+
+                        {
                             if (cpuBar.getX() + xMove < 0) {
                                 xMove = -xMove;
                             }
@@ -119,7 +115,7 @@ public class PlayHO extends GameScreen {
 
                             cpuBar.moveBy(xMove, 0);
                             return false;
-
+                        }
                     });
                 }
     }
@@ -160,7 +156,6 @@ public class PlayHO extends GameScreen {
 
 
 
-
     @Override
     public void setActionsForActors() {
 
@@ -181,24 +176,6 @@ public class PlayHO extends GameScreen {
         if (ActorUtils.actorsCollided(bar,ball1)){
             yMove = Math.abs(yMove);
         }
-
-
-        /*for(int i = 0; i < bricks.length; i++){
-            if (bricks[i] != null && ActorUtils.actorsCollided(bricks[i], ball1)) {
-                popSound.play();
-                bricks[i].remove();
-                bricks[i] = null;
-                yMove = -Math.abs(yMove);
-                scoreB++;
-                if (scoreB % 10 == 0){
-                    maxMove *= 1.1;
-                    yMove *= 1.1;
-                    xMove *= 1.1;
-
-                }
-
-            }
-        }*/
 
 
     }
