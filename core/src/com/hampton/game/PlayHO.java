@@ -44,7 +44,7 @@ public class PlayHO extends GameScreen {
         bar = ActorUtils.createActorFromImage("Blue Striker.png");
         bar.setSize(bar.getWidth(), bar.getHeight());
         bar.setPosition(
-                0, stage.getViewport().getScreenHeight()-bar.getHeight());
+                80, stage.getViewport().getScreenHeight()-bar.getHeight());
         stage.addActor(bar);
 
 
@@ -90,7 +90,29 @@ public class PlayHO extends GameScreen {
                     }
                 });
             }
-            
+
+            /* cpuBar.addListener(new ActorGestureListener() {
+                @Override
+                public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                    // Stop any other actions
+                    cpuBar.clearActions();
+                    xMove = MathUtils.random(maxMove) - maxMove /2;
+                    cpuBar.addAction(new Action() {
+                        @Override
+                        public boolean act(float delta) {
+                            if (cpuBar.getX() + xMove < 0) {
+                                xMove = -xMove;
+                            }
+                            if (cpuBar.getX() + ball1.getWidth() + xMove > stage.getViewport().getScreenWidth()) {
+                                xMove = -xMove;
+                            }
+
+                            cpuBar.moveBy(xMove, 0);
+                            return false;
+                        }
+                    });
+                }*/
+        });
 
     }
 
@@ -108,7 +130,7 @@ public class PlayHO extends GameScreen {
                     Gdx.input.getX(),
                     stage.getViewport().getScreenHeight() - Gdx.input.getY());
             // Moves the bar
-            bar.setPosition(touchPoint.x - bar.getWidth()/ 2), bar.getY()) ;
+            bar.setPosition(bar.getY(), touchPoint.x - bar.getWidth()/ 2);
         }
 
         if (ActorUtils.actorsCollided(bar,ball1)){
