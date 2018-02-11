@@ -19,12 +19,18 @@ public class HamptonHack extends ApplicationAdapter {
 	}
 
 	public void addGameScreensHere() {
+		stateManager.setGameScreen("Menu", new MainScreen("Game"));
+		PlayHO base= new PlayHO();
+		stateManager.setGameScreen("Game", base);
+		stateManager.goToScreen("Menu");
+
 	}
 
 	@Override
 	public void resize (int width, int height) {
 		Stage stage = stateManager.getCurrentGameScreen().getStage();
 		stage.getViewport().update(width, height, true);
+
 	}
 
 	@Override
