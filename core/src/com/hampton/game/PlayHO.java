@@ -132,7 +132,7 @@ public class PlayHO extends GameScreen {
                     Gdx.input.getX(),
                     stage.getViewport().getScreenHeight() - Gdx.input.getY());
             // Moves the bar
-            bar.setPosition(bar.getY(), touchPoint.x - bar.getWidth()/ 2);
+            bar.setPosition(bar.getY(), touchPoint.y - bar.getWidth()/ 2);
         }
 
         if (ActorUtils.actorsCollided(bar,ball1)){
