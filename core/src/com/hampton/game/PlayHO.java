@@ -25,6 +25,8 @@ public class PlayHO extends GameScreen {
     private Actor bar;
     private Actor cpuBar;
     private Music musicSound;
+   // private Actor blueGoal:
+    //private Actor redGoal;
 
     @Override
     public void initialize() {
@@ -54,6 +56,13 @@ public class PlayHO extends GameScreen {
                 80,
                 0);
         stage.addActor(cpuBar);
+
+        /*blueGoal = ActorUtils.createActorFromImage("Red Striker.png");
+        blueGoal.setSize(blueGoal.getWidth(), blueGoal.getHeight());
+        blueGoal.setPosition(
+                80,
+                0);
+        stage.addActor(blueGoal);*/
 
         musicSound = Gdx.audio.newMusic(Gdx.files.internal("AfrAmerSongs.mp3"));
         musicSound.setLooping(true);
