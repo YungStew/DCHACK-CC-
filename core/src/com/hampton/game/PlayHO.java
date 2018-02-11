@@ -3,7 +3,6 @@ package com.hampton.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
@@ -35,21 +34,21 @@ public class PlayHO extends GameScreen {
     @Override
     public void createActors() {
 
-        ball1 = ActorUtils.createActorFromImage("ball1.jpg");
+        ball1 = ActorUtils.createActorFromImage("Hockey Puck Black Power.png");
         ball1.setSize(ball1.getWidth(), ball1.getHeight());
         ball1.setPosition(
                 stage.getViewport().getScreenWidth()/2 - ball1.getWidth()/2,
                 stage.getViewport().getScreenHeight()/3 - ball1.getHeight()/2);
         stage.addActor(ball1);
 
-        bar = ActorUtils.createActorFromImage("bar.png");
+        bar = ActorUtils.createActorFromImage("Blue Striker.png");
         bar.setSize(bar.getWidth(), bar.getHeight());
         bar.setPosition(
                 stage.getViewport().getScreenWidth()/2 - bar.getWidth()/2,
                 60);
         stage.addActor(bar);
 
-        cpuBar = ActorUtils.createActorFromImage("cpuBar.png");
+        cpuBar = ActorUtils.createActorFromImage("Red Striker.png");
         cpuBar.setSize(bar.getWidth(), bar.getHeight());
         cpuBar.setPosition(
                 stage.getViewport().getScreenWidth()/2 - cpuBar.getWidth()/2,
