@@ -55,14 +55,9 @@ public class PlayHO extends GameScreen {
                 0);
         stage.addActor(cpuBar);
 
-        //Trying to figure out how to get it to just play in background
         musicSound = Gdx.audio.newMusic(Gdx.files.internal("AfrAmerSongs.mp3"));
         musicSound.setLooping(true);
         musicSound.play();
-        //  Implementing a volume for the sound so it is consistent
-        musicSound.setVolume(0.5f);
-
-
  
     }
 
@@ -132,10 +127,10 @@ public class PlayHO extends GameScreen {
         if(Gdx.input.isTouched()) {
             // input.getY sets 0 as the top but actors use 0 for the bottom so we have to flip it
             Vector2 touchPoint = new Vector2(
-                    Gdx.input.getY(),
-                    stage.getViewport().getScreenHeight() - Gdx.input.getX());
+                    Gdx.input.getX(),
+                    stage.getViewport().getScreenHeight() - Gdx.input.getY());
             // Moves the bar
-            bar.setPosition(bar.getY(), touchPoint.x - bar.getWidth()/ 2);
+            bar.setPosition(bar.getX(), touchPoint.y - bar.getWidth()/ 2);
         }
 
         if (ActorUtils.actorsCollided(bar,ball1)){
