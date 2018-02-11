@@ -15,10 +15,12 @@ public class MainScreen extends GameScreen {
     private Actor frontPage;
     private Actor start;
     private String nextScreenName;
+    private PlayHO base;
 
 
-    public MainScreen(String nextScreenName) {
+    public MainScreen(String nextScreenName, PlayHO base) {
         this.nextScreenName = nextScreenName;
+        this.base=base;
     }
 
 
