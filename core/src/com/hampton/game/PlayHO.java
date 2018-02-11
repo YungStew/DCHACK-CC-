@@ -144,9 +144,13 @@ public class PlayHO extends GameScreen {
                         if (ball1.getX() + ball1.getWidth() + xMove > stage.getViewport().getScreenWidth()) {
                             xMove = -xMove;
                         }
-
-                        ball1.moveBy(xMove,stage.getViewport().getScreenHeight()-cpuBar.getHeight());
-                        return false;
+                        if (ball1.getY() + yMove < 0) {
+                            yMove = -yMove;
+                        }
+                        if (ball1.getY() + ball1.getHeight() + yMove > stage.getViewport().getScreenHeight()) {
+                            yMove = -yMove;
+                        }
+                         return false;
                     }
                 });
             }
