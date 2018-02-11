@@ -35,14 +35,14 @@ public class PlayHO extends GameScreen {
     public void createActors() {
 
         ball1 = ActorUtils.createActorFromImage("Hockey Puck Black Power.png");
-        ball1.setSize(ball1.getWidth(), ball1.getHeight());
+        ball1.setSize(ball1.getWidth(6), ball1.getHeight(6));
         ball1.setPosition(
                 stage.getViewport().getScreenWidth()/2 - ball1.getWidth()/2,
                 stage.getViewport().getScreenHeight()/3 - ball1.getHeight()/2);
         stage.addActor(ball1);
 
         bar = ActorUtils.createActorFromImage("Blue Striker.png");
-        bar.setSize(bar.getWidth(), bar.getHeight());
+        bar.setSize(bar.getWidth(10), bar.getHeight(10));
         bar.setPosition(
                 stage.getViewport().getScreenWidth()/2 - bar.getWidth()/2,
                 80);
@@ -50,7 +50,7 @@ public class PlayHO extends GameScreen {
 
 
         cpuBar = ActorUtils.createActorFromImage("Red Striker.png");
-        cpuBar.setSize(bar.getWidth(), bar.getHeight());
+        cpuBar.setSize(bar.getWidth(10), bar.getHeight(10));
         cpuBar.setPosition(
                 stage.getViewport().getScreenWidth()/2 - cpuBar.getWidth()/2,
                 80);
