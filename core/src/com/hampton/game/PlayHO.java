@@ -151,7 +151,7 @@ public class PlayHO extends GameScreen {
                             xMove2 = -xMove2;
                         }
 
-                        cpuBar.moveBy(xMove2, stage.getViewport().getScreenHeight()-cpuBar.getHeight());
+                        cpuBar.moveBy(xMove2, 0);
                         return false;
                     }
                 });
