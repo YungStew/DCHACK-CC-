@@ -131,6 +131,9 @@ public class PlayHO extends GameScreen {
                     Gdx.input.getX(),
                     stage.getViewport().getScreenHeight() - Gdx.input.getX());
             // Moves the bar
+            Vector2 touchPoint2 = new Vector2(
+                    touchPoint.x-bar.getHeight(), Gdx.input.getX()
+            );
             bar.setPosition(bar.getX(), 0);
         }
 
