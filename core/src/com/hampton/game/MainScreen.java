@@ -12,7 +12,7 @@ import com.hampton.game.utils.ActorUtils;
 
 public class MainScreen extends GameScreen {
 
-    private Actor title;
+    private Actor frontPage;
     private Actor start;
     private String nextScreenName;
 
@@ -29,10 +29,10 @@ public class MainScreen extends GameScreen {
     @Override
     public void createActors() {
 
-      //title name
-     title= ActorUtils.createButtonFromText("Cross Culture", new Color(1, 1, 1, 1));
-     title.setPosition(500,500);
-     stage.addActor(title);
+      // background
+        frontPage= ActorUtils.createActorFromImage("Main Cover Photo.png");
+        frontPage.setSize(stage.getViewport().getScreenWidth(), stage.getViewport().getScreenHeight());
+        stage.addActor(frontPage);
 
      //start button
      start=ActorUtils.createButtonFromText("Start", new Color(1, 1, 1, 1));
