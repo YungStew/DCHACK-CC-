@@ -138,20 +138,20 @@ public class PlayHO extends GameScreen {
             @Override
             public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 // Stop any other actions
-                ball1.clearActions();
+                cpuBar.clearActions();
                 xMove = MathUtils.random(maxMove) - maxMove /2;
                 yMove = MathUtils.random(maxMove) - maxMove /2;
-                ball1.addAction(new Action() {
+                cpuBar.addAction(new Action() {
                     @Override
                     public boolean act(float delta) {
-                        if (ball1.getX() + xMove < 0) {
+                        if (cpuBar.getX() + xMove < 0) {
                             xMove = -xMove;
                         }
-                        if (ball1.getX() + ball1.getWidth() + xMove > stage.getViewport().getScreenWidth()) {
+                        if (cpuBar.getX() + ball1.getWidth() + xMove > stage.getViewport().getScreenWidth()) {
                             xMove = -xMove;
                         }
 
-                        ball1.moveBy(xMove, stage.getViewport().getScreenHeight()-cpuBar.getHeight());
+                        cpuBar.moveBy(xMove, stage.getViewport().getScreenHeight()-cpuBar.getHeight());
                         return false;
                     }
                 });
