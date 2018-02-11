@@ -139,7 +139,7 @@ public class PlayHO extends GameScreen {
             public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 // Stop any other actions
                 cpuBar.clearActions();
-                xMove = MathUtils.random(80) - 80 /2;
+                xMove = MathUtils.random(80) - 80 /4;
                 cpuBar.addAction(new Action() {
                     @Override
                     public boolean act(float delta) {
