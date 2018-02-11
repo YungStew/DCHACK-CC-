@@ -23,6 +23,7 @@ public class PlayHO extends GameScreen {
     private float maxMove = 20;
     private Actor ball1;
     private Actor bar;
+    //private Actor background;
     private Actor cpuBar;
     private Music musicSound;
 
@@ -44,7 +45,7 @@ public class PlayHO extends GameScreen {
         bar = ActorUtils.createActorFromImage("Blue Striker.png");
         bar.setSize(bar.getWidth(), bar.getHeight());
         bar.setPosition(
-                40, stage.getViewport().getScreenHeight()-bar.getHeight());
+                0, 200);
         stage.addActor(bar);
 
 
@@ -136,7 +137,6 @@ public class PlayHO extends GameScreen {
         if (ActorUtils.actorsCollided(bar,ball1)){
             yMove = Math.abs(yMove);
         }
-
 
 
     }
