@@ -114,13 +114,13 @@ public class PlayHO extends GameScreen {
                 ball1.addAction(new Action() {
                     @Override
                     public boolean act(float delta) {
-                        if (ball1.getX() + xMove < 0) {
+                        if (ball1.getX() - xMove < 0) {
                             xMove = -xMove;
                         }
                         if (ball1.getX() + ball1.getWidth() + xMove > stage.getViewport().getScreenWidth()) {
                             xMove = -xMove;
                         }
-                        if (ball1.getY() + yMove < 0) {
+                        if (ball1.getY() - yMove < 0) {
                             yMove = -yMove;
                         }
                         if (ball1.getY() + ball1.getHeight() + yMove > stage.getViewport().getScreenHeight()) {
