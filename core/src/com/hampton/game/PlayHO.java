@@ -156,7 +156,6 @@ public class PlayHO extends GameScreen {
 
 
 
-
     @Override
     public void setActionsForActors() {
 
