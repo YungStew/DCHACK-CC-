@@ -23,7 +23,7 @@ public class PlayHO extends GameScreen {
     private float maxMove = 20;
     private Actor ball1;
     private Actor bar;
-    //private Actor background;
+    private Actor background;
     private Actor cpuBar;
     private Music musicSound;
     private Actor blueGoal;
@@ -36,6 +36,10 @@ public class PlayHO extends GameScreen {
 
     @Override
     public void createActors() {
+
+        background = ActorUtils.createActorFromImage("African American Background.png");
+        background.setSize(stage.getViewport().getScreenWidth(), stage.getViewport().getScreenHeight());
+        stage.addActor(background);
 
         ball1 = ActorUtils.createActorFromImage("Hockey Puck Black Power.png");
         ball1.setSize(125,125);
@@ -61,9 +65,16 @@ public class PlayHO extends GameScreen {
         musicSound = Gdx.audio.newMusic(Gdx.files.internal("AfrAmerSongs.mp3"));
         musicSound.setLooping(true);
         musicSound.play();
+        
+
  
     }
-
+/*    @Override
+    public void createActors() {
+        background = ActorUtils.createActorFromImage("African American Background.png");
+        background.setSize(stage.getViewport().getScreenWidth(), stage.getViewport().getScreenHeight());
+        stage.addActor(background);
+    }*/
     @Override
     public void setInputForActors() {
         ball1.addListener(new ActorGestureListener() {
