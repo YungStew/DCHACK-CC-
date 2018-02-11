@@ -37,8 +37,8 @@ public class MainScreen extends GameScreen {
 
      //start button
      start=ActorUtils.createActorFromImage("Start Black Power Button.png");
-     start.setSize(200,200);
-     start.setPosition(150,150);
+     start.setSize(300,300);
+     start.setPosition(400,500);
      stage.addActor(start);
     }
 
