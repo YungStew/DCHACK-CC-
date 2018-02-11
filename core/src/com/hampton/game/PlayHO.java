@@ -91,6 +91,28 @@ public class PlayHO extends GameScreen {
                     }
                 });
             }
+
+             cpuBar.addListener(new ActorGestureListener() {
+                @Override
+                public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                    // Stop any other actions
+                    cpuBar.clearActions();
+                    xMove = MathUtils.random(maxMove) - maxMove /2;
+                    cpuBar.addAction(new Action() {
+                        @Override
+                        public boolean act(float delta) {
+                            if (cpuBar.getX() + xMove < 0) {
+                                xMove = -xMove;
+                            }
+                            if (cpuBar.getX() + ball1.getWidth() + xMove > stage.getViewport().getScreenWidth()) {
+                                xMove = -xMove;
+                            }
+
+                            cpuBar.moveBy(xMove, 0);
+                            return false;
+                        }
+                    });
+                }
         });
 
     }
@@ -117,7 +139,7 @@ public class PlayHO extends GameScreen {
         }
 
         //for cpuBar
-        if(Gdx.input.isTouched()) {
+      /*  if(Gdx.input.isTouched()) {
             // input.getY sets 0 as the top but actors use 0 for the bottom so we have to flip it
             Vector2 touchPoint = new Vector2(
                     Gdx.input.getX(),
@@ -128,7 +150,7 @@ public class PlayHO extends GameScreen {
 
         if (ActorUtils.actorsCollided(cpuBar,ball1)){
             yMove = Math.abs(yMove);
-        }
+        }*/
 
     }
 
