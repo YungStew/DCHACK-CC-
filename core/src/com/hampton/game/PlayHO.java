@@ -26,12 +26,13 @@ public class PlayHO extends GameScreen {
     private Actor background;
     private Actor cpuBar;
     private Music musicSound;
-    private Actor blueGoal;
-    private Actor redGoal;
 
     @Override
     public void initialize() {
-
+        
+        musicSound = Gdx.audio.newMusic(Gdx.files.internal("AfrAmerSongs.mp3"));
+        musicSound.setLooping(true);
+        musicSound.play();
     }
 
     @Override
@@ -51,7 +52,7 @@ public class PlayHO extends GameScreen {
         bar = ActorUtils.createActorFromImage("Blue Striker.png");
         bar.setSize(bar.getWidth(), bar.getHeight());
         bar.setPosition(
-                40, stage.getViewport().getScreenHeight()-bar.getHeight());
+                0, 200);
         stage.addActor(bar);
 
 
@@ -62,11 +63,14 @@ public class PlayHO extends GameScreen {
                 0);
         stage.addActor(cpuBar);
 
+<<<<<<< HEAD
         musicSound = Gdx.audio.newMusic(Gdx.files.internal("AfrAmerSongs.mp3"));
         musicSound.setLooping(true);
         musicSound.play();
         
 
+=======
+>>>>>>> 6296061eae0ca8dc62894d4782b10e45460d3c4d
  
     }
 /*    @Override
@@ -144,7 +148,7 @@ public class PlayHO extends GameScreen {
                     Gdx.input.getX(),
                     stage.getViewport().getScreenHeight() - Gdx.input.getY());
             // Moves the bar
-            bar.setPosition(bar.getY(), touchPoint.y - bar.getWidth()/ 2);
+            bar.setPosition(touchPoint.x-bar.getWidth()/2, 0);
         }
 
         if (ActorUtils.actorsCollided(bar,ball1)){
