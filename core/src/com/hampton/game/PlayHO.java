@@ -109,8 +109,8 @@ public class PlayHO extends GameScreen {
             public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 // Stop any other actions
                 ball1.clearActions();
-                xMove = MathUtils.random(maxMove) - maxMove /2;
-                yMove = MathUtils.random(maxMove) - maxMove /2;
+                xMove = maxMove;
+                yMove = maxMove;
                 ball1.addAction(new Action() {
                     @Override
                     public boolean act(float delta) {
