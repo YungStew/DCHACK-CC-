@@ -75,7 +75,7 @@ public class PlayHO extends GameScreen {
         blueGoal.setSize(blueGoal.getWidth(),blueGoal.getHeight());
 
         //cpu goal
-        redGoal=ActorUtils.createActorFromImage("Red Goal");
+        redGoal=ActorUtils.createActorFromImage("Red Goal.png");
         redGoal.setSize(redGoal.getWidth(), redGoal.getHeight());
 
         bar = ActorUtils.createActorFromImage("Blue Striker.png");
