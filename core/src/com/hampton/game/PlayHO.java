@@ -11,6 +11,8 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.utils.ActorGestureListener;
 import com.hampton.game.utils.ActorUtils;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by MichaelS on 2/10/2018.
@@ -63,9 +65,39 @@ public class PlayHO extends GameScreen {
                 0);
         stage.addActor(cpuBar);
 
-
- 
     }
+
+    /*class MyTimerTask extends TimerTask{
+        public void run(){
+             System.out.println("Timer task executed.");
+        }
+    }
+    public void cpuBarMove(){
+        MyTimerTask myTask = new MyTimerTask();
+        Timer myTimer = new Timer();
+        myTimer.schedule(myTask, 1000, 500);
+           cpuBar.addListener(new ActorGestureListener() {
+                @Override
+                public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                    // Stop any other actions
+                    cpuBar.clearActions();
+                    xMove = MathUtils.random(maxMove) - maxMove /2;
+                    cpuBar.addAction(new Action() {
+                            if (cpuBar.getX() + xMove < 0) {
+                                xMove = -xMove;
+                            }
+                            if (cpuBar.getX() + cpuBar.getWidth() + xMove > stage.getViewport().getScreenWidth()) {
+                                xMove = -xMove;
+                            }
+
+                            cpuBar.moveBy(xMove, 0);
+                            return false;
+
+                    });
+                }
+    }
+    }*/
+
 
     @Override
     public void setInputForActors() {
@@ -82,13 +114,13 @@ public class PlayHO extends GameScreen {
                         if (ball1.getX() + xMove < 0) {
                             xMove = -xMove;
                         }
-                        if (stage.getViewport().getScreenWidth() > ball1.getX() + ball1.getWidth() + xMove) {
+                        if (ball1.getX() + ball1.getWidth() + xMove > stage.getViewport().getScreenWidth()) {
                             xMove = -xMove;
                         }
                         if (ball1.getY() + yMove < 0) {
                             ball1.clearActions();
                         }
-                        if (stage.getViewport().getScreenHeight() > ball1.getY() + ball1.getHeight() + yMove) {
+                        if (ball1.getY() + ball1.getHeight() + yMove > stage.getViewport().getScreenHeight()) {
                             yMove = -yMove;
                         }
                         ball1.moveBy(xMove, yMove);
@@ -96,31 +128,11 @@ public class PlayHO extends GameScreen {
                     }
                 });
             }
-
-            cpuBar.addListener(new ActorGestureListener() {
-                @Override
-                public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                    // Stop any other actions
-                    cpuBar.clearActions();
-                    xMove = MathUtils.random(maxMove) - maxMove /2;
-                    cpuBar.addAction(new Action() {
-                        @Override
-                        public boolean act(float delta) {
-                            if (cpuBar.getX() + xMove < 0) {
-                                xMove = -xMove;
-                            }
-                            if (cpuBar.getX() + cpuBar.getWidth() + xMove > stage.getViewport().getScreenWidth()) {
-                                xMove = -xMove;
-                            }
-
-                            cpuBar.moveBy(xMove, 0);
-                            return false;
-                        }
-                    });
-                }
         });
-
     }
+
+
+
 
     @Override
     public void setActionsForActors() {
@@ -142,6 +154,24 @@ public class PlayHO extends GameScreen {
         if (ActorUtils.actorsCollided(bar,ball1)){
             yMove = Math.abs(yMove);
         }
+
+
+        /*for(int i = 0; i < bricks.length; i++){
+            if (bricks[i] != null && ActorUtils.actorsCollided(bricks[i], ball1)) {
+                popSound.play();
+                bricks[i].remove();
+                bricks[i] = null;
+                yMove = -Math.abs(yMove);
+                scoreB++;
+                if (scoreB % 10 == 0){
+                    maxMove *= 1.1;
+                    yMove *= 1.1;
+                    xMove *= 1.1;
+
+                }
+
+            }
+        }*/
 
 
     }
