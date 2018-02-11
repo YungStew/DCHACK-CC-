@@ -15,12 +15,12 @@ public class MainScreen extends GameScreen {
     private Actor frontPage;
     private Actor start;
     private String nextScreenName;
-    private PlayHO base;
 
 
-    public MainScreen(String nextScreenName, PlayHO base) {
+
+    public MainScreen(String nextScreenName) {
         this.nextScreenName = nextScreenName;
-        this.base=base;
+
     }
 
 
@@ -56,7 +56,6 @@ public class MainScreen extends GameScreen {
         start.addListener(new ActorGestureListener() {
             @Override
             public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                base.background=ActorUtils.createActorFromImage("AfricanAmericanBackground.png");
                 gotoScreen(nextScreenName);
             }
         });
