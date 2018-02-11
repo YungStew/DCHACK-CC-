@@ -177,6 +177,9 @@ public class PlayHO extends GameScreen {
             yMove = Math.abs(yMove);
         }
 
+        if (ActorUtils.actorsCollided(cpuBar,ball1)){
+            yMove = -1 * Math.abs(yMove);
+        }
 
     }
 
