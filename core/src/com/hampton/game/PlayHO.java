@@ -29,7 +29,10 @@ public class PlayHO extends GameScreen {
 
     @Override
     public void initialize() {
-
+        
+        musicSound = Gdx.audio.newMusic(Gdx.files.internal("AfrAmerSongs.mp3"));
+        musicSound.setLooping(true);
+        musicSound.play();
     }
 
     @Override
@@ -56,9 +59,6 @@ public class PlayHO extends GameScreen {
                 0);
         stage.addActor(cpuBar);
 
-        musicSound = Gdx.audio.newMusic(Gdx.files.internal("AfrAmerSongs.mp3"));
-        musicSound.setLooping(true);
-        musicSound.play();
  
     }
 
