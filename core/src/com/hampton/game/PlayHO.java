@@ -49,7 +49,7 @@ public class PlayHO extends GameScreen {
         stage.addActor(bar);
 
         cpuBar = ActorUtils.createActorFromImage("cpuBar.png");
-        cpuBar.setSize(bar.getWidth(), bar.getHeight());
+        cpuBar.setSize(cpuBar.getWidth(), cpuBar.getHeight());
         cpuBar.setPosition(
                 stage.getViewport().getScreenWidth()/2 - cpuBar.getWidth()/2,
                 60);
@@ -101,6 +101,7 @@ public class PlayHO extends GameScreen {
 
     @Override
     protected void calledEveryFrame() {
+       //for bar
         if(Gdx.input.isTouched()) {
             // input.getY sets 0 as the top but actors use 0 for the bottom so we have to flip it
             Vector2 touchPoint = new Vector2(
@@ -114,6 +115,7 @@ public class PlayHO extends GameScreen {
             yMove = Math.abs(yMove);
         }
 
+        //for cpuBar
         if(Gdx.input.isTouched()) {
             // input.getY sets 0 as the top but actors use 0 for the bottom so we have to flip it
             Vector2 touchPoint = new Vector2(
