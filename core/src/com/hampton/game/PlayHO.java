@@ -23,6 +23,7 @@ import java.util.TimerTask;
 public class PlayHO extends GameScreen {
 
     private float xMove;
+    private float xMove2;
     private float yMove;
     private float maxMove = 4;
     private Actor ball1;
@@ -139,18 +140,18 @@ public class PlayHO extends GameScreen {
             public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 // Stop any other actions
                 cpuBar.clearActions();
-                xMove = 5;
+                xMove2 = 5;
                 cpuBar.addAction(new Action() {
                     @Override
                     public boolean act(float delta) {
-                        if (cpuBar.getX() + xMove < 0) {
-                            xMove = -xMove;
+                        if (cpuBar.getX() + xMove2 < 0) {
+                            xMove2 = -xMove2;
                         }
-                        if (cpuBar.getX() + cpuBar.getWidth() + xMove > stage.getViewport().getScreenWidth()) {
-                            xMove = -xMove;
+                        if (cpuBar.getX() + cpuBar.getWidth() + xMove2 > stage.getViewport().getScreenWidth()) {
+                            xMove2 = -xMove2;
                         }
 
-                        cpuBar.moveBy(xMove, stage.getViewport().getScreenHeight()-cpuBar.getHeight());
+                        cpuBar.moveBy(xMove2, stage.getViewport().getScreenHeight()-cpuBar.getHeight());
                         return false;
                     }
                 });
