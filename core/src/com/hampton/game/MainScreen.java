@@ -63,8 +63,4 @@ public class MainScreen extends GameScreen {
 
     }
 
-    @Override
-    public void update(int width, int height) {
-
-    }
 }
