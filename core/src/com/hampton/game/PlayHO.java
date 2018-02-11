@@ -66,12 +66,7 @@ public class PlayHO extends GameScreen {
 
  
     }
-/*    @Override
-    public void createActors() {
-        background = ActorUtils.createActorFromImage("African American Background.png");
-        background.setSize(stage.getViewport().getScreenWidth(), stage.getViewport().getScreenHeight());
-        stage.addActor(background);
-    }*/
+
     @Override
     public void setInputForActors() {
         ball1.addListener(new ActorGestureListener() {
