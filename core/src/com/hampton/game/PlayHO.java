@@ -63,14 +63,7 @@ public class PlayHO extends GameScreen {
                 0);
         stage.addActor(cpuBar);
 
-<<<<<<< HEAD
-        musicSound = Gdx.audio.newMusic(Gdx.files.internal("AfrAmerSongs.mp3"));
-        musicSound.setLooping(true);
-        musicSound.play();
-        
 
-=======
->>>>>>> 6296061eae0ca8dc62894d4782b10e45460d3c4d
  
     }
 /*    @Override
