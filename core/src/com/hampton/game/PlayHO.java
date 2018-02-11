@@ -55,56 +55,6 @@ public class PlayHO extends GameScreen {
         scoreLabel = new Label("0", scoreStyle);
         scoreLabel.setPosition(0, stage.getViewport().getScreenHeight() - scoreLabel.getHeight()-15);
         stage.addActor(scoreLabel);
-    }
-
-    @Override
-    public void createActors() {
-
-        background = ActorUtils.createActorFromImage("AfricanAmericanBackground.png");
-        background.setSize(stage.getViewport().getScreenWidth(), stage.getViewport().getScreenHeight());
-        stage.addActor(background);
-
-        ball1 = ActorUtils.createActorFromImage("Hockey Puck Black Power.png");
-        ball1.setSize(125,125);
-        ball1.setPosition(
-                stage.getViewport().getScreenWidth()/2 - ball1.getWidth()/2,
-                stage.getViewport().getScreenHeight()/3 - ball1.getHeight()/2);
-        stage.addActor(ball1);
-
-        //player goal
-        blueGoal=ActorUtils.createActorFromImage("Blue goal- UPDATED.png");
-        blueGoal.setSize(blueGoal.getWidth(),blueGoal.getHeight());
-        blueGoal.setPosition(500, stage.getViewport().getScreenHeight()-20);
-        stage.addActor(blueGoal);
-
-        //cpu goal
-        redGoal=ActorUtils.createActorFromImage("Red Goal- UPDATED.png");
-        redGoal.setSize(redGoal.getWidth(), redGoal.getHeight());
-        redGoal.setPosition(500, 20);
-        stage.addActor(redGoal);
-
-        bar = ActorUtils.createActorFromImage("Blue Puck- UPDATED.png");
-        bar.setSize(bar.getWidth(), bar.getHeight());
-        bar.setPosition(
-                0, 200);
-        stage.addActor(bar);
-
-
-        cpuBar = ActorUtils.createActorFromImage("Red Puck- UPDATED.png");
-        cpuBar.setSize(cpuBar.getWidth(), cpuBar.getHeight());
-        cpuBar.setPosition(
-                80,
-               stage.getViewport().getScreenHeight()-cpuBar.getHeight() );
-        stage.addActor(cpuBar);
-
-    }
-
-
-
-
-
-    @Override
-    public void setInputForActors() {
         ball1.addListener(new ActorGestureListener() {
             @Override
             public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -158,6 +108,56 @@ public class PlayHO extends GameScreen {
             }
         });
 
+    }
+
+    @Override
+    public void createActors() {
+
+        background = ActorUtils.createActorFromImage("AfricanAmericanBackground.png");
+        background.setSize(stage.getViewport().getScreenWidth(), stage.getViewport().getScreenHeight());
+        stage.addActor(background);
+
+        ball1 = ActorUtils.createActorFromImage("Hockey Puck Black Power.png");
+        ball1.setSize(125,125);
+        ball1.setPosition(
+                stage.getViewport().getScreenWidth()/2 - ball1.getWidth()/2,
+                stage.getViewport().getScreenHeight()/3 - ball1.getHeight()/2);
+        stage.addActor(ball1);
+
+        //player goal
+        blueGoal=ActorUtils.createActorFromImage("Blue goal- UPDATED.png");
+        blueGoal.setSize(blueGoal.getWidth(),blueGoal.getHeight());
+        blueGoal.setPosition(500, stage.getViewport().getScreenHeight()-20);
+        stage.addActor(blueGoal);
+
+        //cpu goal
+        redGoal=ActorUtils.createActorFromImage("Red Goal- UPDATED.png");
+        redGoal.setSize(redGoal.getWidth(), redGoal.getHeight());
+        redGoal.setPosition(500, 20);
+        stage.addActor(redGoal);
+
+        bar = ActorUtils.createActorFromImage("Blue Puck- UPDATED.png");
+        bar.setSize(bar.getWidth(), bar.getHeight());
+        bar.setPosition(
+                0, 200);
+        stage.addActor(bar);
+
+
+        cpuBar = ActorUtils.createActorFromImage("Red Puck- UPDATED.png");
+        cpuBar.setSize(cpuBar.getWidth(), cpuBar.getHeight());
+        cpuBar.setPosition(
+                80,
+               stage.getViewport().getScreenHeight()-cpuBar.getHeight() );
+        stage.addActor(cpuBar);
+
+    }
+
+
+
+
+
+    @Override
+    public void setInputForActors() {
 
     }
 
