@@ -71,11 +71,11 @@ public class PlayHO extends GameScreen {
         stage.addActor(ball1);
 
         //player goal
-        blueGoal=ActorUtils.createActorFromImage("Blue Goal.png");
+        blueGoal=ActorUtils.createActorFromImage("Blue goal- UPDATED.png");
         blueGoal.setSize(blueGoal.getWidth(),blueGoal.getHeight());
 
         //cpu goal
-        redGoal=ActorUtils.createActorFromImage("Red Goal.png");
+        redGoal=ActorUtils.createActorFromImage("Red Goal- UPDATED.png");
         redGoal.setSize(redGoal.getWidth(), redGoal.getHeight());
 
         bar = ActorUtils.createActorFromImage("Blue Puck- UPDATED.png");
