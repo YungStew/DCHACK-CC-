@@ -26,13 +26,13 @@ public class PlayHO extends GameScreen {
     private float xMove2;
     private float yMove;
     private float maxMove = 4;
-    private Actor ball1;
+    public Actor ball1;
     private Actor redGoal;
     private Actor blueGoal;
     private Actor bar;
-    private Actor background;
+    public Actor background;
     private Actor cpuBar;
-    private Music musicSound;
+    public Music musicSound;
     private Label scoreLabel;
     private Label.LabelStyle scoreStyle;
     public int score=0;
