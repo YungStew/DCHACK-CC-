@@ -37,6 +37,7 @@ public class MainScreen extends GameScreen {
 
      //start button
      start=ActorUtils.createButtonFromText("Start", new Color(1, 1, 1, 1));
+     start.setSize(40,40);
      start.setPosition(200,200);
      stage.addActor(start);
 
