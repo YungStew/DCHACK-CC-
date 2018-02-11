@@ -16,6 +16,7 @@ public class MainScreen extends GameScreen {
     private Actor start;
     private String nextScreenName;
 
+
     public MainScreen(String nextScreenName) {
         this.nextScreenName = nextScreenName;
     }
@@ -59,6 +60,11 @@ public class MainScreen extends GameScreen {
 
     @Override
     protected void calledEveryFrame() {
+
+    }
+
+    @Override
+    public void update(int width, int height) {
 
     }
 }
