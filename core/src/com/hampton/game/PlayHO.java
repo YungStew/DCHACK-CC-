@@ -185,11 +185,6 @@ public class PlayHO extends GameScreen {
             yMove = -1 * Math.abs(yMove);
         }
 
-        if(score == 5 || cpuScore == 5){
-            //go back to main screen
-            gameOn = false;
-            gotoScreen("MainScreen");
-        }
 
         if (ActorUtils.actorsCollided(blueGoal, ball1)) {
             ball1.setPosition(
@@ -203,6 +198,13 @@ public class PlayHO extends GameScreen {
                     stage.getViewport().getScreenWidth()/2 - ball1.getWidth()/2,
                     stage.getViewport().getScreenHeight()/3 - ball1.getHeight()/2);
                     cpuScore++;
+        }
+
+        scoreLabel.setText(score + " : " + cpuScore);
+        if(score == 5 || cpuScore == 5){
+            //go back to main screen
+            gameOn = false;
+            gotoScreen("MainScreen");
         }
 
         }
