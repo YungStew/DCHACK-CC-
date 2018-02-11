@@ -129,12 +129,9 @@ public class PlayHO extends GameScreen {
             // input.getY sets 0 as the top but actors use 0 for the bottom so we have to flip it
             Vector2 touchPoint = new Vector2(
                     Gdx.input.getX(),
-                    stage.getViewport().getScreenHeight() - Gdx.input.getX());
+                    stage.getViewport().getScreenHeight() - Gdx.input.getY());
             // Moves the bar
-            Vector2 touchPoint2 = new Vector2(
-                    touchPoint.x-bar.getHeight(), Gdx.input.getX()
-            );
-            bar.setPosition(bar.getX(), 0);
+            bar.setPosition(touchPoint.x-bar.getWidth()/2, 0);
         }
 
         if (ActorUtils.actorsCollided(bar,ball1)){
