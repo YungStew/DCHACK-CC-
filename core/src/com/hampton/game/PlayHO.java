@@ -89,7 +89,7 @@ public class PlayHO extends GameScreen {
         cpuBar.setSize(cpuBar.getWidth(), cpuBar.getHeight());
         cpuBar.setPosition(
                 80,
-                0);
+               stage.getViewport().getScreenHeight()-cpuBar.getHeight() );
         stage.addActor(cpuBar);
 
     }
