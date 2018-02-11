@@ -6,11 +6,15 @@ import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.utils.ActorGestureListener;
 import com.hampton.game.utils.ActorUtils;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by MichaelS on 2/10/2018.
@@ -22,10 +26,17 @@ public class PlayHO extends GameScreen {
     private float yMove;
     private float maxMove = 20;
     private Actor ball1;
+    private Actor redGoal;
+    private Actor blueGoal;
     private Actor bar;
     private Actor background;
     private Actor cpuBar;
     private Music musicSound;
+    private Label scoreLabel;
+    private Label.LabelStyle scoreStyle;
+    public int score=0;
+    public int cpuScore=0;
+    private boolean gameOn = false;
 
     @Override
     public void initialize() {
@@ -33,12 +44,22 @@ public class PlayHO extends GameScreen {
         musicSound = Gdx.audio.newMusic(Gdx.files.internal("AfrAmerSongs.mp3"));
         musicSound.setLooping(true);
         musicSound.play();
+
+        gameOn=true;
+        score=0;
+        cpuScore=0;
+
+        scoreStyle = new Label.LabelStyle(new BitmapFont(), new Color(1, 1, 1, 1));
+        scoreStyle.font.getData().setScale(4);
+        scoreLabel = new Label("0", scoreStyle);
+        scoreLabel.setPosition(0, stage.getViewport().getScreenHeight() - scoreLabel.getHeight()-15);
+        stage.addActor(scoreLabel);
     }
 
     @Override
     public void createActors() {
 
-        background = ActorUtils.createActorFromImage("African American Background.png");
+        background = ActorUtils.createActorFromImage("AfricanAmericanBackground.png");
         background.setSize(stage.getViewport().getScreenWidth(), stage.getViewport().getScreenHeight());
         stage.addActor(background);
 
@@ -48,6 +69,14 @@ public class PlayHO extends GameScreen {
                 stage.getViewport().getScreenWidth()/2 - ball1.getWidth()/2,
                 stage.getViewport().getScreenHeight()/3 - ball1.getHeight()/2);
         stage.addActor(ball1);
+
+        //player goal
+        blueGoal=ActorUtils.createActorFromImage("Blue Goal.png");
+        blueGoal.setSize(blueGoal.getWidth(),blueGoal.getHeight());
+
+        //cpu goal
+        redGoal=ActorUtils.createActorFromImage("Red Goal.png");
+        redGoal.setSize(redGoal.getWidth(), redGoal.getHeight());
 
         bar = ActorUtils.createActorFromImage("Blue Striker.png");
         bar.setSize(bar.getWidth(), bar.getHeight());
@@ -63,9 +92,35 @@ public class PlayHO extends GameScreen {
                 0);
         stage.addActor(cpuBar);
 
-
- 
     }
+
+
+   /* public void cpuBarMove(){
+           cpuBar.addListener(new ActorGestureListener() {
+                @Override
+                public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                    // Stop any other actions
+                    cpuBar.clearActions();
+                    xMove = MathUtils.random(maxMove) - maxMove /2;
+                    cpuBar.addAction(new Action() {
+                        public boolean act(float delta)
+
+                        {
+                            if (cpuBar.getX() + xMove < 0) {
+                                xMove = -xMove;
+                            }
+                            if (cpuBar.getX() + cpuBar.getWidth() + xMove > stage.getViewport().getScreenWidth()) {
+                                xMove = -xMove;
+                            }
+
+                            cpuBar.moveBy(xMove, 0);
+                            return false;
+                        }
+                    });
+                }
+    }
+    }*/
+
 
     @Override
     public void setInputForActors() {
@@ -82,13 +137,13 @@ public class PlayHO extends GameScreen {
                         if (ball1.getX() + xMove < 0) {
                             xMove = -xMove;
                         }
-                        if (stage.getViewport().getScreenWidth() > ball1.getX() + ball1.getWidth() + xMove) {
+                        if (ball1.getX() + ball1.getWidth() + xMove > stage.getViewport().getScreenWidth()) {
                             xMove = -xMove;
                         }
                         if (ball1.getY() + yMove < 0) {
                             ball1.clearActions();
                         }
-                        if (stage.getViewport().getScreenHeight() > ball1.getY() + ball1.getHeight() + yMove) {
+                        if (ball1.getY() + ball1.getHeight() + yMove > stage.getViewport().getScreenHeight()) {
                             yMove = -yMove;
                         }
                         ball1.moveBy(xMove, yMove);
@@ -96,31 +151,10 @@ public class PlayHO extends GameScreen {
                     }
                 });
             }
-
-            cpuBar.addListener(new ActorGestureListener() {
-                @Override
-                public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                    // Stop any other actions
-                    cpuBar.clearActions();
-                    xMove = MathUtils.random(maxMove) - maxMove /2;
-                    cpuBar.addAction(new Action() {
-                        @Override
-                        public boolean act(float delta) {
-                            if (cpuBar.getX() + xMove < 0) {
-                                xMove = -xMove;
-                            }
-                            if (cpuBar.getX() + cpuBar.getWidth() + xMove > stage.getViewport().getScreenWidth()) {
-                                xMove = -xMove;
-                            }
-
-                            cpuBar.moveBy(xMove, 0);
-                            return false;
-                        }
-                    });
-                }
         });
-
     }
+
+
 
     @Override
     public void setActionsForActors() {
