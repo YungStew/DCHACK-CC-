@@ -42,6 +42,7 @@ public class MainScreen extends GameScreen {
      start.setSize(300,300);
      start.setPosition(400,500);
      stage.addActor(start);
+
     }
 
     @Override
