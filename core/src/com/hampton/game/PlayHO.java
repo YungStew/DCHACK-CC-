@@ -54,31 +54,6 @@ public class PlayHO extends GameScreen {
         scoreLabel = new Label("0", scoreStyle);
         scoreLabel.setPosition(0, stage.getViewport().getScreenHeight() - scoreLabel.getHeight()-15);
         stage.addActor(scoreLabel);
-
-        cpuBar.addListener(new ActorGestureListener() {
-            @Override
-            public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                // Stop any other actions
-                ball1.clearActions();
-                xMove = MathUtils.random(maxMove) - maxMove /2;
-                //yMove = MathUtils.random(maxMove) - maxMove /2;
-                cpuBar.addAction(new Action() {
-                    @Override
-                    public boolean act(float delta) {
-                        if (ball1.getX() + xMove < 0) {
-                            xMove = -xMove;
-                        }
-                        if (ball1.getX() + ball1.getWidth() + xMove > stage.getViewport().getScreenWidth()) {
-                            xMove = -xMove;
-                        }
-
-                        ball1.moveBy(xMove,stage.getViewport().getScreenHeight()-cpuBar.getHeight() );
-                        return false;
-                    }
-                });
-            }
-        });
-
     }
 
     @Override
@@ -88,6 +63,12 @@ public class PlayHO extends GameScreen {
         background.setSize(stage.getViewport().getScreenWidth(), stage.getViewport().getScreenHeight());
         stage.addActor(background);
 
+        ball1 = ActorUtils.createActorFromImage("Hockey Puck Black Power.png");
+        ball1.setSize(125,125);
+        ball1.setPosition(
+                stage.getViewport().getScreenWidth()/2 - ball1.getWidth()/2,
+                stage.getViewport().getScreenHeight()/3 - ball1.getHeight()/2);
+        stage.addActor(ball1);
 
         //player goal
         blueGoal=ActorUtils.createActorFromImage("Blue goal- UPDATED.png");
@@ -100,14 +81,6 @@ public class PlayHO extends GameScreen {
         redGoal.setSize(redGoal.getWidth(), redGoal.getHeight());
         redGoal.setPosition(500, 20);
         stage.addActor(redGoal);
-
-        ball1 = ActorUtils.createActorFromImage("Hockey Puck Black Power.png");
-        ball1.setSize(125,125);
-        ball1.setPosition(
-                stage.getViewport().getScreenWidth()/2 - ball1.getWidth()/2,
-                stage.getViewport().getScreenHeight()/3 - ball1.getHeight()/2);
-        stage.addActor(ball1);
-
 
         bar = ActorUtils.createActorFromImage("Blue Puck- UPDATED.png");
         bar.setSize(bar.getWidth(), bar.getHeight());
@@ -126,7 +99,31 @@ public class PlayHO extends GameScreen {
     }
 
 
+   /* public void cpuBarMove(){
+           cpuBar.addListener(new ActorGestureListener() {
+                @Override
+                public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                    // Stop any other actions
+                    cpuBar.clearActions();
+                    xMove = MathUtils.random(maxMove) - maxMove /2;
+                    cpuBar.addAction(new Action() {
+                        public boolean act(float delta)
 
+                        {
+                            if (cpuBar.getX() + xMove < 0) {
+                                xMove = -xMove;
+                            }
+                            if (cpuBar.getX() + cpuBar.getWidth() + xMove > stage.getViewport().getScreenWidth()) {
+                                xMove = -xMove;
+                            }
+
+                            cpuBar.moveBy(xMove, 0);
+                            return false;
+                        }
+                    });
+                }
+    }
+    }*/
 
 
     @Override
@@ -154,6 +151,9 @@ public class PlayHO extends GameScreen {
                 });
             }
         });
+
+        
+
 
     }
 
