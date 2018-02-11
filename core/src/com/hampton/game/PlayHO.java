@@ -44,16 +44,15 @@ public class PlayHO extends GameScreen {
         bar = ActorUtils.createActorFromImage("Blue Striker.png");
         bar.setSize(bar.getWidth(), bar.getHeight());
         bar.setPosition(
-                stage.getViewport().getScreenWidth(),
-                80);
+                80, stage.getViewport().getScreenHeight());
         stage.addActor(bar);
 
 
         cpuBar = ActorUtils.createActorFromImage("Red Striker.png");
         cpuBar.setSize(cpuBar.getWidth(), cpuBar.getHeight());
         cpuBar.setPosition(
-                0,
-                80);
+                80,
+                0);
         stage.addActor(cpuBar);
 
         musicSound = Gdx.audio.newMusic(Gdx.files.internal("AfrAmerSongs.mp3"));
