@@ -24,7 +24,7 @@ public class PlayHO extends GameScreen {
 
     private float xMove;
     private float yMove;
-    private float maxMove = 20;
+    private float maxMove = 10;
     private Actor ball1;
     private Actor redGoal;
     private Actor blueGoal;
@@ -139,7 +139,7 @@ public class PlayHO extends GameScreen {
             public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 // Stop any other actions
                 cpuBar.clearActions();
-                xMove = MathUtils.random(80) - 80 /4;
+                xMove = 5;
                 cpuBar.addAction(new Action() {
                     @Override
                     public boolean act(float delta) {
