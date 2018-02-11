@@ -14,6 +14,7 @@ public class MainScreen extends GameScreen {
 
     private Actor frontPage;
     private Actor start;
+    private Actor startI;
     private String nextScreenName;
 
 
@@ -42,6 +43,13 @@ public class MainScreen extends GameScreen {
      start.setSize(300,300);
      start.setPosition(400,500);
      stage.addActor(start);
+
+     //irish start
+        startI=ActorUtils.createActorFromImage("Start Button Shamrock.png");
+        startI.setSize(300,300);
+        startI.setPosition(100,500);
+        stage.addActor(startI);
+
     }
 
     @Override
@@ -55,9 +63,16 @@ public class MainScreen extends GameScreen {
         start.addListener(new ActorGestureListener() {
             @Override
             public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                gotoScreen(nextScreenName);
+                gotoScreen("Game");
             }
         });
+        startI.addListener(new ActorGestureListener() {
+            @Override
+            public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                gotoScreen("Irish");
+            }
+        });
+
     }
 
     @Override
