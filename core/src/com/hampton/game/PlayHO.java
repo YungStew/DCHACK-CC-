@@ -6,6 +6,8 @@ import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Action;
@@ -22,10 +24,17 @@ public class PlayHO extends GameScreen {
     private float yMove;
     private float maxMove = 20;
     private Actor ball1;
+    private Actor redGoal;
+    private Actor blueGoal;
     private Actor bar;
     private Actor background;
     private Actor cpuBar;
     private Music musicSound;
+    private Label scoreLabel;
+    private Label.LabelStyle scoreStyle;
+    public int score=0;
+    public int cpuScore=0;
+    private boolean gameOn = false;
 
     @Override
     public void initialize() {
@@ -33,6 +42,16 @@ public class PlayHO extends GameScreen {
         musicSound = Gdx.audio.newMusic(Gdx.files.internal("AfrAmerSongs.mp3"));
         musicSound.setLooping(true);
         musicSound.play();
+
+        gameOn=true;
+        score=0;
+        cpuScore=0;
+
+        scoreStyle = new Label.LabelStyle(new BitmapFont(), new Color(1, 1, 1, 1));
+        scoreStyle.font.getData().setScale(4);
+        scoreLabel = new Label("0", scoreStyle);
+        scoreLabel.setPosition(0, stage.getViewport().getScreenHeight() - scoreLabel.getHeight()-15);
+        stage.addActor(scoreLabel);
     }
 
     @Override
@@ -48,6 +67,14 @@ public class PlayHO extends GameScreen {
                 stage.getViewport().getScreenWidth()/2 - ball1.getWidth()/2,
                 stage.getViewport().getScreenHeight()/3 - ball1.getHeight()/2);
         stage.addActor(ball1);
+
+        //player goal
+        blueGoal=ActorUtils.createActorFromImage("Blue Goal.png");
+        blueGoal.setSize(blueGoal.getWidth(),blueGoal.getHeight());
+
+        //cpu goal
+        redGoal=ActorUtils.createActorFromImage("Red Goal");
+        redGoal.setSize(redGoal.getWidth(), redGoal.getHeight());
 
         bar = ActorUtils.createActorFromImage("Blue Striker.png");
         bar.setSize(bar.getWidth(), bar.getHeight());
