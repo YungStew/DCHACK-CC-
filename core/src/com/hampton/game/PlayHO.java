@@ -54,6 +54,31 @@ public class PlayHO extends GameScreen {
         scoreLabel = new Label("0", scoreStyle);
         scoreLabel.setPosition(0, stage.getViewport().getScreenHeight() - scoreLabel.getHeight()-15);
         stage.addActor(scoreLabel);
+
+        cpuBar.addListener(new ActorGestureListener() {
+            @Override
+            public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                // Stop any other actions
+                ball1.clearActions();
+                xMove = MathUtils.random(maxMove) - maxMove /2;
+                //yMove = MathUtils.random(maxMove) - maxMove /2;
+                cpuBar.addAction(new Action() {
+                    @Override
+                    public boolean act(float delta) {
+                        if (ball1.getX() + xMove < 0) {
+                            xMove = -xMove;
+                        }
+                        if (ball1.getX() + ball1.getWidth() + xMove > stage.getViewport().getScreenWidth()) {
+                            xMove = -xMove;
+                        }
+
+                        ball1.moveBy(xMove,stage.getViewport().getScreenHeight()-cpuBar.getHeight() );
+                        return false;
+                    }
+                });
+            }
+        });
+
     }
 
     @Override
@@ -99,31 +124,7 @@ public class PlayHO extends GameScreen {
     }
 
 
-   /* public void cpuBarMove(){
-           cpuBar.addListener(new ActorGestureListener() {
-                @Override
-                public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                    // Stop any other actions
-                    cpuBar.clearActions();
-                    xMove = MathUtils.random(maxMove) - maxMove /2;
-                    cpuBar.addAction(new Action() {
-                        public boolean act(float delta)
 
-                        {
-                            if (cpuBar.getX() + xMove < 0) {
-                                xMove = -xMove;
-                            }
-                            if (cpuBar.getX() + cpuBar.getWidth() + xMove > stage.getViewport().getScreenWidth()) {
-                                xMove = -xMove;
-                            }
-
-                            cpuBar.moveBy(xMove, 0);
-                            return false;
-                        }
-                    });
-                }
-    }
-    }*/
 
 
     @Override
@@ -151,31 +152,6 @@ public class PlayHO extends GameScreen {
                 });
             }
         });
-
-        cpuBar.addListener(new ActorGestureListener() {
-            @Override
-            public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                // Stop any other actions
-                ball1.clearActions();
-                xMove = MathUtils.random(maxMove) - maxMove /2;
-                //yMove = MathUtils.random(maxMove) - maxMove /2;
-                cpuBar.addAction(new Action() {
-                    @Override
-                    public boolean act(float delta) {
-                        if (ball1.getX() + xMove < 0) {
-                            xMove = -xMove;
-                        }
-                        if (ball1.getX() + ball1.getWidth() + xMove > stage.getViewport().getScreenWidth()) {
-                            xMove = -xMove;
-                        }
-
-                        ball1.moveBy(xMove,stage.getViewport().getScreenHeight()-cpuBar.getHeight() );
-                        return false;
-                    }
-                });
-            }
-        });
-
 
     }
 
