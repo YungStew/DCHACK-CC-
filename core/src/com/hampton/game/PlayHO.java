@@ -24,6 +24,7 @@ public class PlayHO extends GameScreen {
     private Actor ball1;
     private Actor bar;
     private Actor cpuBar;
+    private Music musicSound;
 
     @Override
     public void initialize() {
@@ -53,6 +54,10 @@ public class PlayHO extends GameScreen {
                 stage.getViewport().getScreenWidth()/2 - cpuBar.getWidth()/2,
                 60);
         stage.addActor(cpuBar);
+
+        musicSound = Gdx.audio.newMusic(Gdx.files.internal("dub.mp3"));
+        musicSound.setLooping(true);
+        musicSound.play();
 
     }
 
