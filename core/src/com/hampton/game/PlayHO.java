@@ -47,7 +47,7 @@ public class PlayHO extends GameScreen {
         bar = ActorUtils.createActorFromImage("Blue Striker.png");
         bar.setSize(bar.getWidth(), bar.getHeight());
         bar.setPosition(
-                40, stage.getViewport().getScreenHeight()-bar.getHeight());
+                0, stage.getViewport().getScreenHeight()-bar.getHeight());
         stage.addActor(bar);
 
 
