@@ -3,7 +3,6 @@ package com.hampton.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
@@ -35,25 +34,25 @@ public class PlayHO extends GameScreen {
     @Override
     public void createActors() {
 
-        ball1 = ActorUtils.createActorFromImage("ball1.jpg");
-        ball1.setSize(ball1.getWidth(), ball1.getHeight());
+        ball1 = ActorUtils.createActorFromImage("Hockey Puck Black Power.png");
+        ball1.setSize(125,125);
         ball1.setPosition(
                 stage.getViewport().getScreenWidth()/2 - ball1.getWidth()/2,
                 stage.getViewport().getScreenHeight()/3 - ball1.getHeight()/2);
         stage.addActor(ball1);
 
-        bar = ActorUtils.createActorFromImage("bar.png");
+        bar = ActorUtils.createActorFromImage("Blue Striker.png");
         bar.setSize(bar.getWidth(), bar.getHeight());
         bar.setPosition(
-                stage.getViewport().getScreenWidth()/2 - bar.getWidth()/2,
-                60);
+                80, stage.getViewport().getScreenHeight()/2-bar.getHeight());
         stage.addActor(bar);
 
-        cpuBar = ActorUtils.createActorFromImage("cpuBar.png");
+
+        cpuBar = ActorUtils.createActorFromImage("Red Striker.png");
         cpuBar.setSize(cpuBar.getWidth(), cpuBar.getHeight());
         cpuBar.setPosition(
-                stage.getViewport().getScreenWidth()/2 - cpuBar.getWidth()/2,
-                60);
+                80,
+                0);
         stage.addActor(cpuBar);
 
         musicSound = Gdx.audio.newMusic(Gdx.files.internal("AfrAmerSongs.mp3"));
@@ -77,20 +76,42 @@ public class PlayHO extends GameScreen {
                         if (ball1.getX() + xMove < 0) {
                             xMove = -xMove;
                         }
-                        if (ball1.getX() + ball1.getWidth() + xMove > stage.getViewport().getScreenWidth()) {
+                        if (stage.getViewport().getScreenWidth() > ball1.getX() + ball1.getWidth() + xMove) {
                             xMove = -xMove;
                         }
                         if (ball1.getY() + yMove < 0) {
                             ball1.clearActions();
                         }
-                        if (ball1.getY() + ball1.getHeight() + yMove > stage.getViewport().getScreenHeight()) {
+                        if (stage.getViewport().getScreenHeight() > ball1.getY() + ball1.getHeight() + yMove) {
                             yMove = -yMove;
                         }
-                        ball1.moveBy(xMove, yMove);
+                        ball1.moveBy(yMove, xMove);
                         return false;
                     }
                 });
             }
+
+            /* cpuBar.addListener(new ActorGestureListener() {
+                @Override
+                public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                    // Stop any other actions
+                    cpuBar.clearActions();
+                    xMove = MathUtils.random(maxMove) - maxMove /2;
+                    cpuBar.addAction(new Action() {
+                        @Override
+                        public boolean act(float delta) {
+                            if (cpuBar.getX() + xMove < 0) {
+                                xMove = -xMove;
+                            }
+                            if (cpuBar.getX() + ball1.getWidth() + xMove > stage.getViewport().getScreenWidth()) {
+                                xMove = -xMove;
+                            }
+
+                            cpuBar.moveBy(xMove, 0);
+                            return false;
+                        }
+                    });
+                }*/
         });
 
     }
@@ -109,26 +130,14 @@ public class PlayHO extends GameScreen {
                     Gdx.input.getX(),
                     stage.getViewport().getScreenHeight() - Gdx.input.getY());
             // Moves the bar
-            bar.setPosition(touchPoint.x - bar.getWidth()/ 2, bar.getY());
+            bar.setPosition(bar.getX(), touchPoint.y - bar.getWidth()/ 2);
         }
 
         if (ActorUtils.actorsCollided(bar,ball1)){
             yMove = Math.abs(yMove);
         }
 
-        //for cpuBar
-        if(Gdx.input.isTouched()) {
-            // input.getY sets 0 as the top but actors use 0 for the bottom so we have to flip it
-            Vector2 touchPoint = new Vector2(
-                    Gdx.input.getX(),
-                    stage.getViewport().getScreenHeight() - Gdx.input.getY());
-            // Moves the bar
-            cpuBar.setPosition(touchPoint.x - cpuBar.getWidth()/ 2, cpuBar.getY());
-        }
 
-        if (ActorUtils.actorsCollided(cpuBar,ball1)){
-            yMove = Math.abs(yMove);
-        }
 
     }
 
