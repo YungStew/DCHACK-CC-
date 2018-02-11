@@ -160,7 +160,7 @@ public class PlayHO extends GameScreen {
 
 
     }
-    
+
     @Override
     public void setActionsForActors() {
 
@@ -206,6 +206,7 @@ public class PlayHO extends GameScreen {
             //go back to main screen
             gameOn = false;
             scoreLabel.remove();
+            musicSound.stop();
             gotoScreen("Menu");
         }
 
