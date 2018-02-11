@@ -45,7 +45,7 @@ public class PlayHO extends GameScreen {
         bar.setSize(bar.getWidth(), bar.getHeight());
         bar.setPosition(
                 stage.getViewport().getScreenWidth()/2 - bar.getWidth()/2,
-                60);
+                80);
         stage.addActor(bar);
 
 
@@ -53,7 +53,7 @@ public class PlayHO extends GameScreen {
         cpuBar.setSize(bar.getWidth(), bar.getHeight());
         cpuBar.setPosition(
                 stage.getViewport().getScreenWidth()/2 - cpuBar.getWidth()/2,
-                60);
+                80);
         stage.addActor(cpuBar);
 
         musicSound = Gdx.audio.newMusic(Gdx.files.internal("AfrAmerSongs.mp3"));
@@ -107,7 +107,7 @@ public class PlayHO extends GameScreen {
             // input.getY sets 0 as the top but actors use 0 for the bottom so we have to flip it
             Vector2 touchPoint = new Vector2(
                     Gdx.input.getX(),
-                    stage.getViewport().getScreenHeight() - Gdx.input.getY());
+                    stage.getViewport().getScreenHeight() - Gdx.input.getY(50));
             // Moves the bar
             bar.setPosition(touchPoint.x - bar.getWidth()/ 2, bar.getY());
         }
@@ -121,7 +121,7 @@ public class PlayHO extends GameScreen {
             // input.getY sets 0 as the top but actors use 0 for the bottom so we have to flip it
             Vector2 touchPoint = new Vector2(
                     Gdx.input.getX(),
-                    stage.getViewport().getScreenHeight() - Gdx.input.getY());
+                    stage.getViewport().getScreenHeight() - Gdx.input.getY(10));
             // Moves the bar
             cpuBar.setPosition(touchPoint.x - cpuBar.getWidth()/ 2, cpuBar.getY());
         }
