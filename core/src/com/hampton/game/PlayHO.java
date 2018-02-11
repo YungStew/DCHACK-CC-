@@ -25,8 +25,6 @@ public class PlayHO extends GameScreen {
     private Actor bar;
     private Actor cpuBar;
     private Music musicSound;
-    private Actor blueGoal;
-    private Actor redGoal;
 
     @Override
     public void initialize() {
