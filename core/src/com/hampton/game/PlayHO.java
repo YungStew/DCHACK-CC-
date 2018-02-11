@@ -113,7 +113,7 @@ public class PlayHO extends GameScreen {
     @Override
     public void createActors() {
 
-        
+
         background.setSize(stage.getViewport().getScreenWidth(), stage.getViewport().getScreenHeight());
         stage.addActor(background);
 
