@@ -204,7 +204,7 @@ public class PlayHO extends GameScreen {
         if(score == 5 || cpuScore == 5){
             //go back to main screen
             gameOn = false;
-            gotoScreen("MainScreen");
+            gotoScreen("Menu");
         }
 
         }
