@@ -99,31 +99,7 @@ public class PlayHO extends GameScreen {
     }
 
 
-   /* public void cpuBarMove(){
-           cpuBar.addListener(new ActorGestureListener() {
-                @Override
-                public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                    // Stop any other actions
-                    cpuBar.clearActions();
-                    xMove = MathUtils.random(maxMove) - maxMove /2;
-                    cpuBar.addAction(new Action() {
-                        public boolean act(float delta)
 
-                        {
-                            if (cpuBar.getX() + xMove < 0) {
-                                xMove = -xMove;
-                            }
-                            if (cpuBar.getX() + cpuBar.getWidth() + xMove > stage.getViewport().getScreenWidth()) {
-                                xMove = -xMove;
-                            }
-
-                            cpuBar.moveBy(xMove, 0);
-                            return false;
-                        }
-                    });
-                }
-    }
-    }*/
 
 
     @Override
@@ -231,6 +207,7 @@ public class PlayHO extends GameScreen {
         if(score == 5 || cpuScore == 5){
             //go back to main screen
             gameOn = false;
+            scoreLabel.remove();
             gotoScreen("Menu");
         }
 
