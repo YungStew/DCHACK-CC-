@@ -181,6 +181,19 @@ public class PlayHO extends GameScreen {
             yMove = -1 * Math.abs(yMove);
         }
 
+        if (ActorUtils.actorsCollided(blueGoal, ball1)) {
+            ball1.setPosition(
+                    stage.getViewport().getScreenWidth()/2 - ball1.getWidth()/2,
+                    stage.getViewport().getScreenHeight()/3 - ball1.getHeight()/2);
+        }
+
+        if (ActorUtils.actorsCollided(redGoal, ball1)) {
+            ball1.setPosition(
+                    stage.getViewport().getScreenWidth()/2 - ball1.getWidth()/2,
+                    stage.getViewport().getScreenHeight()/3 - ball1.getHeight()/2);
+        }
+
+        }
+
     }
 
-}
