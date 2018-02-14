@@ -19,16 +19,14 @@ public class HamptonHack extends ApplicationAdapter {
 	}
 
 	public void addGameScreensHere() {
-		PlayHO base= new PlayHO();
-
-		Irishplay sham= new Irishplay();
 
 		stateManager.setGameScreen("Menu", new MainScreen("Game"));
+		PlayHO base= new PlayHO();
 		stateManager.setGameScreen("Game", base);
-		stateManager.setGameScreen("Irish", sham);
+		
 		stateManager.goToScreen("Menu");
-		stateManager.goToScreen("Game");
-		stateManager.goToScreen("Irish");
+
+
 
 
 	}
